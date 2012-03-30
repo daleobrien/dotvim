@@ -1,28 +1,33 @@
-## Vim settings
+# Vim settings
 
-Just my VIM settings.
+These are settings for ```vim``` which I mainly use for editing python code in.
 
 ## Installation instructions
 
-You problably should back up your current ~/.vim folder some where and delete the current folder first.
+1. Backup
+    You problably should back up your current settings some where and delete the current folder first, e.g.
+
+    ```sh
+    mv ~./vim ~/.vim_back_up
+    ```
 
 1. Download the code
 
-```sh
-git clone git://github.com/daleobrien/dotvim.git ~/.vim
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-```
+    ```sh
+    git clone git://github.com/daleobrien/dotvim.git ~/.vim
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    ```
 
 
-3. Create a simlink, if it doesn't already exist
+1. Create a simlink, if it doesn't already exist
 
-```sh
-ln -s ~/.vim/vimrc ~/.vimrc
-```
+    ```sh
+    ln -s ~/.vim/vimrc ~/.vimrc
+    ```
 
-4. Install 3rd party plugins
-
-Launch `vim`, then run `:BundleInstall`
+1. Install 3rd party plugins
+  
+    Launch `vim`, then run `:BundleInstall`
 
 
 
