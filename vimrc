@@ -122,7 +122,6 @@
   map <Leader>dt :VimDjangoCommandTTemplate<CR>
   map <Leader>da :VimDjangoCommandTApp<CR>
 
-  Bundle 'django.vim'
   Bundle 'Python-Documentation'
   Bundle 'pyflakes.vim'
 
