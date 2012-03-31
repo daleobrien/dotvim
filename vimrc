@@ -100,6 +100,12 @@
   Bundle 'pangloss/vim-javascript'
   Bundle 'itspriddle/vim-jquery'
 
+  " syntax and error stuff
+  Bundle 'pyflakes.vim'
+  "Bundle 'scrooloose/syntastic'
+  "let g:syntastic_mode_map = { 'mode': 'active',
+                             "\ 'active_filetypes': ['ruby', 'python','cpp'],
+                             "\ 'passive_filetypes': ['puppet'] }
   " Bundle 'ShowMarks'
 
   " Python stuff
@@ -111,10 +117,6 @@
   map <Leader>da :VimDjangoCommandTApp<CR>
 
   " Bundle 'Python-Documentation'
-  Bundle 'scrooloose/syntastic'
-  let g:syntastic_mode_map = { 'mode': 'active',
-                             \ 'active_filetypes': ['ruby', 'python','cpp'],
-                             \ 'passive_filetypes': ['puppet'] }
 
   Bundle 'kien/ctrlp.vim'
 
