@@ -11,6 +11,7 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. FuzzyFinder
 1. https://github.com/scrooloose/nerdcommenter
 1. https://github.com/scrooloose/nerdtree, file browser support
+1. https://github.com/kien/ctrlp.vim, opens files
 1. https://github.com/leshill/vim-json, json support
 1. https://github.com/vim-ruby/vim-ruby, Ruby
 1. https://github.com/pangloss/vim-javascript, Javascript, well, because who doesn't love Javascript !
