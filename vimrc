@@ -118,7 +118,7 @@
   " Python stuff
   Bundle 'python.vim'
 
-  Bundle 'vim_django'
+  Bundle 'django.vim'
   map <Leader>dt :VimDjangoCommandTTemplate<CR>
   map <Leader>da :VimDjangoCommandTApp<CR>
 
