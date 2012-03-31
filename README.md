@@ -19,7 +19,6 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. https://github.com/ShowMarks
 1. python.vim, Python
 1. django.vim & django_templates.vim
-1. Python-Documentation, e.g. 
 1. Gundo, visualizing your undo tree to make usable
 
 ## Installation instructions
