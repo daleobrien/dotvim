@@ -16,7 +16,6 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. https://github.com/vim-ruby/vim-ruby, Ruby
 1. https://github.com/pangloss/vim-javascript, Javascript, well, because who doesn't love Javascript !
 1. https://github.com/itspriddle/vim-jquery, Jquery support
-1. https://github.com/ShowMarks
 1. python.vim, Python
 1. django.vim & django_templates.vim
 1. Gundo, visualizing your undo tree to make usable
