@@ -10,7 +10,7 @@
   set expandtab
   set wrapmargin=1000
 
-  set number
+  " set number
   set showmode
   set ic
   set mousef
@@ -31,8 +31,6 @@
   "endfunction
   "inoremap <Tab> <C-R>=CleverTab()<CR>
 
-
-
   map <M-1> :tabn 1<cr>
   map <M-2> :tabn 2<cr>
   map <M-3> :tabn 3<cr>
@@ -42,7 +40,6 @@
   map <M-7> :tabn 7<cr>
   map <M-8> :tabn 8<cr>
   map <M-9> :tabn 9<cr>
-
 
   imap <M-1> <C-o>:tabn 1<cr>
   imap <M-2> <C-o>:tabn 2<cr>
@@ -56,7 +53,6 @@
 
   iabbrev pdb; import pdb; pdb.set_trace()
   iabbrev rpdb2; import rpdb2; rpdb2.start_embedded_debugger('0000', fAllowRemote=True)
-
 
   "set list
   "set listchars=tab:»·,trail:·
@@ -79,28 +75,21 @@
   " original repos on github
   Bundle 'tpope/vim-fugitive'
 
-  "Bundle 'vim-pad'
-  "let g:pad_dir = "/home/bulkan/notes"
-
-  Bundle 'Markdown'
+  Bundle 'hallison/vim-markdown'
   Bundle 'SuperTab'
-
-
   Bundle 'L9'
   Bundle 'FuzzyFinder'
+
   map <LEADER>F    :FufFile<CR>
   map <LEADER>f    :FufFileWithCurrentBufferDir<CR>
   map <LEADER>b    :FufBuffer<CR>
   map <LEADER>r    :FufRenewCache<CR>
     
   Bundle 'scrooloose/nerdcommenter'
-
-  Bundle 'scroolose/nerdtree'
-  Bundle 'nerdtree'
+  Bundle 'scrooloose/nerdtree'
   map <LEADER>n :NERDTreeToggle %:p<CR>
 
   Bundle 'ack.vim'
-
   Bundle 'mutewinter/vim-indent-guides'
   let g:indent_guides_auto_colors =  1
   "let g:indent_guides_start_level =  2
@@ -108,23 +97,22 @@
 
   Bundle 'leshill/vim-json'
   Bundle 'vim-ruby/vim-ruby'
-  Bundle 'tpope/vim-haml'
   Bundle 'pangloss/vim-javascript'
   Bundle 'itspriddle/vim-jquery'
 
   Bundle 'ShowMarks'
-  Bundle 'SearchComplate'
 
   " Python stuff
   Bundle 'python.vim'
 
   Bundle 'django.vim'
+  Bundle 'django_templates.vim'
   map <Leader>dt :VimDjangoCommandTTemplate<CR>
   map <Leader>da :VimDjangoCommandTApp<CR>
 
-  Bundle 'Python-Documentation'
-  Bundle 'pyflakes.vim'
-
+  " Bundle 'Python-Documentation'
+  " Bundle 'pyflakes.vim'
+  Bundle 'scrooloose/syntastic'
 
   Bundle 'kien/ctrlp.vim'
 
