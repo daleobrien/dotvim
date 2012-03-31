@@ -100,7 +100,7 @@
   Bundle 'pangloss/vim-javascript'
   Bundle 'itspriddle/vim-jquery'
 
-  Bundle 'ShowMarks'
+  " Bundle 'ShowMarks'
 
   " Python stuff
   Bundle 'python.vim'
