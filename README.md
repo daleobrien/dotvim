@@ -4,6 +4,7 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 
 1. https://github.com/scrooloose/nerdtree 
 1. https://github.com/scrooloose/syntastic, highlights programming errors
+1. pyflakes.vim, which needs pyflakes installed, e.g. `pip install pyflakes`
 1. L9, which provides some utility functions and commands for programming in Vim
 1. https://github.com/tpope/vim-fugitive, git support
 1. https://github.com/hallison/vim-markdown, Markdown support
