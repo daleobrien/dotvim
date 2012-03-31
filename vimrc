@@ -111,7 +111,6 @@
   map <Leader>da :VimDjangoCommandTApp<CR>
 
   " Bundle 'Python-Documentation'
-  Bundle 'pyflakes.vim'
   Bundle 'scrooloose/syntastic'
 
   Bundle 'kien/ctrlp.vim'
