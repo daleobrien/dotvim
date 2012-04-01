@@ -106,6 +106,11 @@
   let g:syntastic_mode_map = { 'mode': 'active',
                              \ 'active_filetypes': ['ruby', 'python','cpp'],
                              \ 'passive_filetypes': ['puppet'] }
+ let g:syntastic_check_on_open=1
+ let g:syntastic_enable_balloons=1
+ let g:syntastic_quiet_warnings=1
+
+
   " Bundle 'ShowMarks'
 
   " Python stuff
