@@ -132,7 +132,10 @@
   nnoremap <F5> :GundoToggle<CR>
 
   filetype plugin on
-  # sql
+  " sql
   Bundle 'dbext.vim'
-  Bundle 'SQLComplete.vim'
-  let g:sql_type_default = 'postgres' 
+  "Bundle 'SQLComplete.vim'
+  "let g:sql_type_default = 'postgres' 
+  Bundle 'psql.vim'
+  
+
