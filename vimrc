@@ -133,5 +133,6 @@
 
   filetype plugin on
   # sql
+  Bundle 'dbext.vim'
   Bundle 'SQLComplete.vim'
   let g:sql_type_default = 'postgres' 
