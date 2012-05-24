@@ -10,7 +10,8 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. https://github.com/ervandew/supertab, Tab completion
 1. FuzzyFinder
 1. https://github.com/scrooloose/nerdcommenter
-1. https://github.com/scrooloose/nerdtree, file browser support
+1. https://github.com/scrooloose/nerdtree, file browser support, CTLR-W w to switch between windows,  press t one selected file to open in new tab or ENTER to replace current one.
+1. https://github.com/jistr/vim-nerdtree-tabs, so I can have nerdtree on all tabs '<Leader>t' toggles 
 1. https://github.com/kien/ctrlp.vim, opens files
 1. https://github.com/leshill/vim-json, json support
 1. https://github.com/vim-ruby/vim-ruby, Ruby

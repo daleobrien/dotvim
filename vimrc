@@ -132,6 +132,16 @@
   Bundle 'psql.vim'
 
   Bundle 'scrooloose/nerdtree'
-  map <LEADER>n :NERDTreeToggle %:p<CR>
+  autocmd vimenter * NERDTree
+  " open if no files were specifiied
+  autocmd vimenter * if !argc() | NERDTree | endif
+  " close vim if only NERDTree is left
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+ "
+  " keep just one nerdtree tab, in all tabs
+  Bundle 'jistr/vim-nerdtree-tabs'
+  let g:nerdtree_tabs_open_on_console_startup=1
+  map <Leader>t <plug>NERDTreeTabsToggle<CR>
 
   filetype plugin on
