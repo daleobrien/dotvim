@@ -86,8 +86,7 @@
   map <LEADER>r    :FufRenewCache<CR>
     
   Bundle 'scrooloose/nerdcommenter'
-  Bundle 'scrooloose/nerdtree'
-  map <LEADER>n :NERDTreeToggle %:p<CR>
+ # more nerd down ...
 
   Bundle 'ack.vim'
   Bundle 'mutewinter/vim-indent-guides'
@@ -125,13 +124,9 @@
 
   Bundle 'kien/ctrlp.vim'
 
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
-  set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
-
   Bundle 'Gundo'
   nnoremap <F5> :GundoToggle<CR>
 
-  filetype plugin on
   " sql
   Bundle 'dbext.vim'
   "Bundle 'SQLComplete.vim'
@@ -139,3 +134,11 @@
   Bundle 'psql.vim'
   
 
+  Bundle 'nvie/vim-flake8'
+  let g:flake8_ignore = 'E501,W293'
+  autocmd FileType python map <buffer> <leader>pp :call Flake8()<CR>
+
+  Bundle 'scrooloose/nerdtree'
+  map <LEADER>n :NERDTreeToggle %:p<CR>
+
+  filetype plugin on
