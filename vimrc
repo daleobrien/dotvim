@@ -86,7 +86,7 @@
   map <LEADER>r    :FufRenewCache<CR>
     
   Bundle 'scrooloose/nerdcommenter'
- # more nerd down ...
+ " more nerd down ...
 
   Bundle 'ack.vim'
   Bundle 'mutewinter/vim-indent-guides'
