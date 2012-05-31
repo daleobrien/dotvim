@@ -84,6 +84,9 @@
   map <LEADER>f    :FufFileWithCurrentBufferDir<CR>
   map <LEADER>b    :FufBuffer<CR>
   map <LEADER>r    :FufRenewCache<CR>
+
+ " HTML stuff
+  Bundle 'mattn/zencoding-vim.git'
     
   Bundle 'scrooloose/nerdcommenter'
  " more nerd down ...
