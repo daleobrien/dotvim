@@ -103,9 +103,12 @@
 
   Bundle 'ack.vim'
   Bundle 'mutewinter/vim-indent-guides'
-  let g:indent_guides_auto_colors =  1
+  " let g:indent_guides_autocmds_enabled = 1
   let g:indent_guides_start_level =  2
   let g:indent_guides_guide_size =  1
+  let g:indent_guides_auto_colors = 1
+  " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+  " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
   Bundle 'leshill/vim-json'
   Bundle 'vim-ruby/vim-ruby'
@@ -117,9 +120,9 @@
   let g:syntastic_mode_map = { 'mode': 'active',
                              \ 'active_filetypes': ['ruby', 'python','cpp'],
                              \ 'passive_filetypes': ['puppet'] }
- let g:syntastic_check_on_open=1
- let g:syntastic_enable_balloons=1
- let g:syntastic_quiet_warnings=1
+  let g:syntastic_check_on_open=1
+  let g:syntastic_enable_balloons=1
+  let g:syntastic_quiet_warnings=1
 
   " Python stuff
   Bundle 'python.vim'
@@ -141,19 +144,6 @@
   "Bundle 'SQLComplete.vim'
   let g:sql_type_default = 'postgres' 
   Bundle 'psql.vim'
-
-  "Bundle 'scrooloose/nerdtree'
-  "" autocmd vimenter * NERDTree
-  "" open if no files were specifiied
-  "autocmd vimenter * if !argc() | NERDTree | endif
-  "" close vim if only NERDTree is left
-  "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
- ""
-  "" keep just one nerdtree tab, in all tabs
-  " Bundle 'jistr/vim-nerdtree-tabs'
-  " let g:nerdtree_tabs_open_on_console_startup=0
-  " map <Leader>t <plug>NERDTreeTabsToggle<CR>
 
   filetype plugin on
 
