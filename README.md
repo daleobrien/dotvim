@@ -2,16 +2,14 @@
 
 These are settings for ```vim``` which I mainly use for editing python code in.  I've installed the following plugins
 
-1. https://github.com/scrooloose/nerdtree 
 1. https://github.com/scrooloose/syntastic, highlights programming errors.  Might need to install some or all of pyflakes, pylint, flake8.
 1. L9, which provides some utility functions and commands for programming in Vim
 1. https://github.com/tpope/vim-fugitive, git support
 1. https://github.com/hallison/vim-markdown, Markdown support
 1. https://github.com/ervandew/supertab, Tab completion
-1. FuzzyFinder
+1. FuzzyFinder,  <leader>f, find files and so on
 1. https://github.com/scrooloose/nerdcommenter
-1. https://github.com/scrooloose/nerdtree, file browser support, CTLR-W w to switch between windows,  press t on selected file to open in new tab or ENTER to replace current one.
-1. https://github.com/jistr/vim-nerdtree-tabs, so I can have nerdtree on all tabs '<Leader>t' toggles 
+1. mutewinter/vim-indent-guides, <leader>ig to highlight indentation
 1. https://github.com/kien/ctrlp.vim, opens files
 1. https://github.com/leshill/vim-json, json support
 1. https://github.com/vim-ruby/vim-ruby, Ruby
