@@ -10,6 +10,14 @@
   set expandtab
   set wrapmargin=1000
 
+"  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"  match OverLength /\%81v.\+/
+  if exists('+colorcolumn')
+    set colorcolumn=80
+  else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  endif
+
   " set number
   set showmode
   set ic
@@ -76,8 +84,10 @@
   Bundle 'tpope/vim-fugitive'
 
   Bundle 'hallison/vim-markdown'
-  Bundle 'SuperTab'
+  " Bundle 'SuperTab'
+ 
   Bundle 'L9'
+
   Bundle 'FuzzyFinder'
 
   map <LEADER>F    :FufFile<CR>
@@ -94,8 +104,8 @@
   Bundle 'ack.vim'
   Bundle 'mutewinter/vim-indent-guides'
   let g:indent_guides_auto_colors =  1
-  "let g:indent_guides_start_level =  2
-  "let g:indent_guides_guide_size =  1
+  let g:indent_guides_start_level =  2
+  let g:indent_guides_guide_size =  1
 
   Bundle 'leshill/vim-json'
   Bundle 'vim-ruby/vim-ruby'
@@ -110,8 +120,6 @@
  let g:syntastic_check_on_open=1
  let g:syntastic_enable_balloons=1
  let g:syntastic_quiet_warnings=1
-
-  " Bundle 'ShowMarks'
 
   " Python stuff
   Bundle 'python.vim'
@@ -131,20 +139,24 @@
   " sql
   Bundle 'dbext.vim'
   "Bundle 'SQLComplete.vim'
-  "let g:sql_type_default = 'postgres' 
+  let g:sql_type_default = 'postgres' 
   Bundle 'psql.vim'
 
-  Bundle 'scrooloose/nerdtree'
-  " autocmd vimenter * NERDTree
-  " open if no files were specifiied
-  autocmd vimenter * if !argc() | NERDTree | endif
-  " close vim if only NERDTree is left
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  "Bundle 'scrooloose/nerdtree'
+  "" autocmd vimenter * NERDTree
+  "" open if no files were specifiied
+  "autocmd vimenter * if !argc() | NERDTree | endif
+  "" close vim if only NERDTree is left
+  "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
- "
-  " keep just one nerdtree tab, in all tabs
-  Bundle 'jistr/vim-nerdtree-tabs'
-  let g:nerdtree_tabs_open_on_console_startup=0
-  map <Leader>t <plug>NERDTreeTabsToggle<CR>
+ ""
+  "" keep just one nerdtree tab, in all tabs
+  " Bundle 'jistr/vim-nerdtree-tabs'
+  " let g:nerdtree_tabs_open_on_console_startup=0
+  " map <Leader>t <plug>NERDTreeTabsToggle<CR>
 
   filetype plugin on
+
+  if has("gui_running")
+      colorscheme lucius
+  endif
