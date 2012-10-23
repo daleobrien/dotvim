@@ -30,7 +30,6 @@
   map <LEADER>w :close<CR>
   "imap <C-W> <C-o>:bwipeout!<CR>
 
-
   "function! CleverTab()
      "if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
     "return "\<Tab>"
