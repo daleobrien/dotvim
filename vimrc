@@ -113,6 +113,7 @@
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'pangloss/vim-javascript'
   Bundle 'itspriddle/vim-jquery'
+  Bundle 'Valloric/YouCompleteMe'
 
   " syntax and error stuff
   Bundle 'scrooloose/syntastic'
@@ -175,5 +176,5 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
   \ contains=@'.group
 endfunction
 
-au FileType python call TextEnableCodeSnip('sqlpostgres', "'''", "'''", 'SpecialComment')
+ "au FileType python call TextEnableCodeSnip('sqlpostgres', "'''", "'''", 'SpecialComment')
 
