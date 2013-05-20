@@ -149,6 +149,7 @@
 
   if has("gui_running")
       colorscheme lucius
+      set guioptions-=T  "remove toolbar
   endif
 
 function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
