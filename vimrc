@@ -145,6 +145,9 @@
   let g:sql_type_default = 'postgres' 
   Bundle 'psql.vim'
 
+  " flake8 ...
+  let g:flake8_ignore="E125,E126,E127"
+
   filetype plugin on
 
   if has("gui_running")
