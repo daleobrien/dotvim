@@ -9,7 +9,6 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. https://github.com/ervandew/supertab, Tab completion
 1. FuzzyFinder,  \<leader\>f, find files and so on
 1. https://github.com/scrooloose/nerdcommenter
-1. mutewinter/vim-indent-guides, \<leader\>ig to highlight indentation
 1. https://github.com/kien/ctrlp.vim, opens files
 1. https://github.com/leshill/vim-json, json support
 1. https://github.com/vim-ruby/vim-ruby, Ruby
