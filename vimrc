@@ -10,21 +10,6 @@
   set expandtab
   set wrapmargin=1000
 
-" relative then normal numbers
-function! NumberToggle()
-    if(&relativenumber == 1)
-    set number
-else
-    set relativenumber
-    endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-
-autocmd FocusLost * :set number
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-autocmd CursorMoved * :set relativenumber
 
 "  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "  match OverLength /\%81v.\+/
