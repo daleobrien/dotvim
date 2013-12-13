@@ -10,21 +10,17 @@
   set expandtab
   set wrapmargin=1000
 
+  set hlsearch
+
 " relative then normal numbers
-function! NumberToggle()
-    if(&relativenumber == 1)
-    set number
-else
-    set relativenumber
-    endif
-endfunc
+  set number
 
-nnoremap <C-n> :call NumberToggle()<cr>
+" nnoremap <C-n> :call NumberToggle()<cr>
 
-autocmd FocusLost * :set number
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-autocmd CursorMoved * :set relativenumber
+" autocmd FocusLost * :set number
+" autocmd InsertEnter * :set number
+" autocmd InsertLeave * :set relativenumber
+" autocmd CursorMoved * :set relativenumber
 
 "  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "  match OverLength /\%81v.\+/
@@ -139,7 +135,7 @@ autocmd CursorMoved * :set relativenumber
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_balloons=1
   let g:syntastic_quiet_warnings=1
-  "let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+  let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
   " Python stuff
   Bundle 'python.vim'
