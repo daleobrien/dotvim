@@ -29,7 +29,6 @@
   else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
   endif
-
   " set number
   set showmode
   set ic
@@ -70,11 +69,11 @@
   imap <M-8> <C-o>:tabn 8<cr> 
   imap <M-9> <C-o>:tabn 9<cr> 
 
+  " shortcuts  
   iabbrev pdb; import pdb; pdb.set_trace()
   iabbrev rpdb2; import rpdb2; rpdb2.start_embedded_debugger('0000', fAllowRemote=True)
-
-  "set list
-  "set listchars=tab:»·,trail:·
+  exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+  set list
 
   map <LEADER>F    :FufFile<CR>
   map <LEADER>f    :FufFileWithCurrentBufferDir<CR>
