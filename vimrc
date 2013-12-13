@@ -80,6 +80,9 @@
   map <LEADER>b    :FufBuffer<CR>
   map <LEADER>r    :FufRenewCache<CR>
 
+  " so I don't need to presh SHIFT : to execute a command
+  nnoremap ; :
+
 
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
