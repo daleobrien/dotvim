@@ -9,7 +9,6 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. https://github.com/ervandew/supertab, Tab completion
 1. FuzzyFinder,  \<leader\>f, find files and so on
 1. https://github.com/scrooloose/nerdcommenter
-1. mutewinter/vim-indent-guides, \<leader\>ig to highlight indentation
 1. https://github.com/kien/ctrlp.vim, opens files
 1. https://github.com/leshill/vim-json, json support
 1. https://github.com/vim-ruby/vim-ruby, Ruby
@@ -19,6 +18,7 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. django.vim & django_templates.vim
 1. Gundo, visualizing your undo tree to make usable
 1. https://github.com/mattn/zencoding-vim.git, html abbreviation like zen-coding
+1. https://github.com/Valloric/YouCompleteMe, A code-completion engine for Vim
 
 ## Installation instructions
 
@@ -46,6 +46,14 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. Install 3rd party plugins
   
     Launch `vim`, then run `:BundleInstall`
+
+    Compile "YouCompleteMe" without C-Language support
+
+    ```    
+    sudo yum -y install cmake
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.sh
+    ```
 
 
 
