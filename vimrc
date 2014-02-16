@@ -10,6 +10,8 @@
   set expandtab
   set wrapmargin=1000
 
+  set hlsearch
+
 " relative then normal numbers
 "function! NumberToggle()
 "    if(&relativenumber == 1)
@@ -36,7 +38,6 @@ autocmd CursorMoved * :set number
   else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
   endif
-
   " set number
   set showmode
   set ic
@@ -77,16 +78,19 @@ autocmd CursorMoved * :set number
   imap <M-8> <C-o>:tabn 8<cr> 
   imap <M-9> <C-o>:tabn 9<cr> 
 
+  " shortcuts  
   iabbrev pdb; import pdb; pdb.set_trace()
   iabbrev rpdb2; import rpdb2; rpdb2.start_embedded_debugger('0000', fAllowRemote=True)
-
-  "set list
-  "set listchars=tab:»·,trail:·
+  exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+  set list
 
   map <LEADER>F    :FufFile<CR>
   map <LEADER>f    :FufFileWithCurrentBufferDir<CR>
   map <LEADER>b    :FufBuffer<CR>
   map <LEADER>r    :FufRenewCache<CR>
+
+  " so I don't need to presh SHIFT : to execute a command
+  nnoremap ; :
 
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
@@ -137,6 +141,8 @@ autocmd CursorMoved * :set number
   " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
   " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
+  Bundle 'ack.vim'
+
   Bundle 'leshill/vim-json'
  " Bundle 'vim-ruby/vim-ruby'
   Bundle 'Valloric/YouCompleteMe'
@@ -153,7 +159,7 @@ autocmd CursorMoved * :set number
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_balloons=1
   let g:syntastic_quiet_warnings=1
-  "let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+  let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
   " Python stuff
   Bundle 'python.vim'
