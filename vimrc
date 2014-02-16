@@ -102,6 +102,7 @@ autocmd CursorMoved * :set number
   autocmd vimenter * if !argc() | NERDTree | endif
   " and close if nerdtree is the only window open
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  let g:NERDTreeWinSize = 43
 
   " let Vundle manage Vundle
   " required! 
