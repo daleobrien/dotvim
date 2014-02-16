@@ -19,6 +19,7 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. django.vim & django_templates.vim
 1. Gundo, visualizing your undo tree to make usable
 1. https://github.com/mattn/zencoding-vim.git, html abbreviation like zen-coding
+1. https://github.com/scrooloose/nerdtree, file browser
 
 ## Installation instructions
 

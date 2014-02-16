@@ -11,20 +11,23 @@
   set wrapmargin=1000
 
 " relative then normal numbers
-function! NumberToggle()
-    if(&relativenumber == 1)
-    set number
-else
-    set relativenumber
-    endif
-endfunc
+"function! NumberToggle()
+"    if(&relativenumber == 1)
+" set number
+"else
+"    set relativenumber
+"    endif
+"endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
+"nnoremap <C-n> :call NumberToggle()<cr>
 
+autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" 
 autocmd FocusLost * :set number
 autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-autocmd CursorMoved * :set relativenumber
+autocmd InsertLeave * :set number
+autocmd CursorMoved * :set number
 
 "  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "  match OverLength /\%81v.\+/
@@ -85,25 +88,34 @@ autocmd CursorMoved * :set relativenumber
   map <LEADER>b    :FufBuffer<CR>
   map <LEADER>r    :FufRenewCache<CR>
 
-
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
+
+  Bundle 'scrooloose/nerdtree.git'  
+  " toggle with CONTROL-n
+  map <C-n> :NERDTreeToggle<CR>
+  " open browser upon start
+  autocmd vimenter * if !argc() | NERDTree | endif
+  " and close if nerdtree is the only window open
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
   " let Vundle manage Vundle
   " required! 
   Bundle 'gmarik/vundle'
+  Bundle 'bling/vim-airline'
 
   " My Bundles here:
   "
   " original repos on github
-  Bundle 'tpope/vim-fugitive'
+   Bundle 'tpope/vim-fugitive'
 
-  Bundle 'hallison/vim-markdown'
+ " Bundle 'hallison/vim-markdown'
   " Bundle 'SuperTab'
  
   Bundle 'L9'
 
   Bundle 'FuzzyFinder'
+  let g:airline_powerline_fonts = 1
 
   map <LEADER>F    :FufFile<CR>
   map <LEADER>f    :FufFileWithCurrentBufferDir<CR>
@@ -113,10 +125,10 @@ autocmd CursorMoved * :set relativenumber
  " HTML stuff
   Bundle 'mattn/zencoding-vim.git'
     
-  Bundle 'scrooloose/nerdcommenter'
+ " Bundle 'scrooloose/nerdcommenter'
  " more nerd down ...
 
-  Bundle 'ack.vim'
+ " Bundle 'ack.vim'
   Bundle 'mutewinter/vim-indent-guides'
   " let g:indent_guides_autocmds_enabled = 1
   let g:indent_guides_start_level =  2
@@ -126,10 +138,12 @@ autocmd CursorMoved * :set relativenumber
   " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
   Bundle 'leshill/vim-json'
-  Bundle 'vim-ruby/vim-ruby'
-  Bundle 'pangloss/vim-javascript'
-  Bundle 'itspriddle/vim-jquery'
+ " Bundle 'vim-ruby/vim-ruby'
   Bundle 'Valloric/YouCompleteMe'
+
+  " javascript
+  Bundle 'pangloss/vim-javascript'
+  let g:javascript_enable_domhtmlcss=1
 
   " syntax and error stuff
   Bundle 'scrooloose/syntastic'
@@ -153,14 +167,16 @@ autocmd CursorMoved * :set relativenumber
 
   Bundle 'kien/ctrlp.vim'
 
-  Bundle 'Gundo'
+ " Bundle 'Gundo'
   nnoremap <F5> :GundoToggle<CR>
 
   " sql
-  Bundle 'dbext.vim'
-  "Bundle 'SQLComplete.vim'
+  "Bundle 'dbext.vim'
   let g:sql_type_default = 'postgres' 
   Bundle 'psql.vim'
+  Bundle 'itspriddle/vim-jquery'
+
+
 
   " flake8 ...
   let g:flake8_ignore="E125,E126,E127"
@@ -198,4 +214,4 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
 endfunction
 
  "au FileType python call TextEnableCodeSnip('sqlpostgres', "'''", "'''", 'SpecialComment')
-
+ "
