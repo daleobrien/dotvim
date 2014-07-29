@@ -1,8 +1,17 @@
 "get syntax highlighting
   syntax on
+  syntax enable
   set ai
 
-" set my colorscheme to that of lilac 
+  if has("gui_running")
+      colorscheme lucius
+      set guioptions-=T  "remove toolbar
+  endif
+
+  let g:solarized_termcolors=256
+  colorscheme solarized
+  set background=dark
+
   set sw=4
   set tw=1000
   set tabstop=4
@@ -11,6 +20,8 @@
   set wrapmargin=1000
 
   set hlsearch
+
+  set tabpagemax=30
 
 " relative then normal numbers
 "function! NumberToggle()
@@ -23,9 +34,12 @@
 
 "nnoremap <C-n> :call NumberToggle()<cr>
 
+" Automatically remove white space upon save
+autocmd BufWritePre * :%s/\s\+$//e
+
 autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" 
+"
 autocmd FocusLost * :set number
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set number
@@ -70,15 +84,18 @@ autocmd CursorMoved * :set number
 
   imap <M-1> <C-o>:tabn 1<cr>
   imap <M-2> <C-o>:tabn 2<cr>
-  imap <M-3> <C-o>:tabn 3<cr> 
-  imap <M-4> <C-o>:tabn 4<cr> 
-  imap <M-5> <C-o>:tabn 5<cr> 
-  imap <M-6> <C-o>:tabn 6<cr> 
-  imap <M-7> <C-o>:tabn 7<cr> 
-  imap <M-8> <C-o>:tabn 8<cr> 
-  imap <M-9> <C-o>:tabn 9<cr> 
+  imap <M-3> <C-o>:tabn 3<cr>
+  imap <M-4> <C-o>:tabn 4<cr>
+  imap <M-5> <C-o>:tabn 5<cr>
+  imap <M-6> <C-o>:tabn 6<cr>
+  imap <M-7> <C-o>:tabn 7<cr>
+  imap <M-8> <C-o>:tabn 8<cr>
+  imap <M-9> <C-o>:tabn 9<cr>
 
-  " shortcuts  
+  map <Tab> <C-W>w
+  map \| :vsplit<cr>
+
+  " shortcuts
   iabbrev pdb; import pdb; pdb.set_trace()
   iabbrev rpdb2; import rpdb2; rpdb2.start_embedded_debugger('0000', fAllowRemote=True)
   exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -95,7 +112,7 @@ autocmd CursorMoved * :set number
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
 
-  Bundle 'scrooloose/nerdtree.git'  
+  Bundle 'scrooloose/nerdtree.git'
   " toggle with CONTROL-n
   map <C-n> :NERDTreeToggle<CR>
   " open browser upon start
@@ -105,7 +122,7 @@ autocmd CursorMoved * :set number
   let g:NERDTreeWinSize = 43
 
   " let Vundle manage Vundle
-  " required! 
+  " required!
   Bundle 'gmarik/vundle'
   Bundle 'bling/vim-airline'
 
@@ -116,7 +133,7 @@ autocmd CursorMoved * :set number
 
  " Bundle 'hallison/vim-markdown'
   " Bundle 'SuperTab'
- 
+
   Bundle 'L9'
 
   Bundle 'FuzzyFinder'
@@ -129,8 +146,8 @@ autocmd CursorMoved * :set number
 
  " HTML stuff
   Bundle 'mattn/zencoding-vim.git'
-    
- " Bundle 'scrooloose/nerdcommenter'
+
+  Bundle 'scrooloose/nerdcommenter'
  " more nerd down ...
 
  " Bundle 'ack.vim'
@@ -145,8 +162,7 @@ autocmd CursorMoved * :set number
   Bundle 'ack.vim'
 
   Bundle 'leshill/vim-json'
- " Bundle 'vim-ruby/vim-ruby'
-  Bundle 'Valloric/YouCompleteMe'
+  " Bundle 'Valloric/YouCompleteMe'
 
   " javascript
   Bundle 'pangloss/vim-javascript'
@@ -159,8 +175,10 @@ autocmd CursorMoved * :set number
                              \ 'passive_filetypes': ['puppet'] }
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_balloons=1
-  let g:syntastic_quiet_warnings=1
+  let g:syntastic_quiet_messages = {'level': 'warnings'}
   let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+
+  " execute pathogen#infect()
 
   " Python stuff
   Bundle 'python.vim'
@@ -179,7 +197,7 @@ autocmd CursorMoved * :set number
 
   " sql
   "Bundle 'dbext.vim'
-  let g:sql_type_default = 'postgres' 
+  let g:sql_type_default = 'postgres'
   Bundle 'psql.vim'
   Bundle 'itspriddle/vim-jquery'
 
@@ -190,10 +208,6 @@ autocmd CursorMoved * :set number
 
   filetype plugin on
 
-  if has("gui_running")
-      colorscheme lucius
-      set guioptions-=T  "remove toolbar
-  endif
 
 function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
   let ft=toupper(a:filetype)
