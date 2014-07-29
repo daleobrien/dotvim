@@ -18,32 +18,13 @@
   set smarttab
   set expandtab
   set wrapmargin=1000
-
   set hlsearch
-
   set tabpagemax=30
-
-" relative then normal numbers
-"function! NumberToggle()
-"    if(&relativenumber == 1)
-" set number
-"else
-"    set relativenumber
-"    endif
-"endfunc
-
-"nnoremap <C-n> :call NumberToggle()<cr>
 
 " Automatically remove white space upon save
 autocmd BufWritePre * :%s/\s\+$//e
 
 autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-"
-autocmd FocusLost * :set number
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set number
-autocmd CursorMoved * :set number
 
 "  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "  match OverLength /\%81v.\+/
@@ -144,18 +125,15 @@ autocmd CursorMoved * :set number
   map <LEADER>b    :FufBuffer<CR>
   map <LEADER>r    :FufRenewCache<CR>
 
- " HTML stuff
-  Bundle 'mattn/zencoding-vim.git'
 
   Bundle 'scrooloose/nerdcommenter'
- " more nerd down ...
 
  " Bundle 'ack.vim'
-  Bundle 'mutewinter/vim-indent-guides'
   " let g:indent_guides_autocmds_enabled = 1
   let g:indent_guides_start_level =  2
   let g:indent_guides_guide_size =  1
   let g:indent_guides_auto_colors = 1
+
   " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
   " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
