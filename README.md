@@ -29,7 +29,7 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. Create a simlink, if it doesn't already exist
 
     ```sh
-    ln -s ~/.vim/vimrc ~/.vimrc
+    rm -f ~/.vimrc && ln -s ~/.vim/vimrc ~/.vimrc
     ```
 
 1. Install 3rd party plugins
