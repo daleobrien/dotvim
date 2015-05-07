@@ -34,8 +34,6 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 
 1. Install 3rd party plugins
   
-    Launch `vim`, then run `:BundleInstall`
-    or:
     ```
     vim +BundleInstall +qall!
     ```
@@ -49,7 +47,9 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
     ```
 
 ## Install instructions (One liner)
+
 1. All in one go
+
     ```sh
     perl -e 'system "mv ~/.vim ~/.vim_back_up" if glob "~/.vim"' && \
     git clone git://github.com/daleobrien/dotvim.git ~/.vim && \
