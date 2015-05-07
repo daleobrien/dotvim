@@ -15,7 +15,7 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
     You problably should back up your current settings some where and delete the current folder first, e.g.
 
     ```sh
-    mv ~./vim ~/.vim_back_up
+    mv ~/.vim ~/.vim_back_up
     ```
 
 1. Download the code
