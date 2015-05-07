@@ -54,6 +54,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "   wider
 let g:NERDTreeWinSize = 43
+let NERDTreeIgnore = ['\.pyc$']
 
 " auto
 
