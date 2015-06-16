@@ -52,10 +52,11 @@ map <c-n> :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 "   close if nerdtree is the only window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"   wider
+"   wider (also mapped 'w' to auto resize, see /bundle/nerdtree/plugin/NERD_tree.vim 
 let g:NERDTreeWinSize = 43
 let NERDTreeIgnore = ['\.pyc$']
 " also, press 'w' to auto resize
+
 
 " auto
 
