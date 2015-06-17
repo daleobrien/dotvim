@@ -29,7 +29,8 @@ Plugin 'scrooloose/nerdtree.git'
 " Looks for syntatic errors
 " Note: pip install flake8
 " Note: pip install pylint
-" Plugin 'scrooloose/syntastic.git'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'tell-k/vim-autopep8'
 
 " color
 Bundle 'altercation/vim-colors-solarized'
