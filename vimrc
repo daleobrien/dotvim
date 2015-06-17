@@ -74,7 +74,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 "
 "
 let g:syntastic_python_checkers = ['flake8']
-let g:flake8_ignore="E125,E126,E127"
+let g:flake8_ignore="E125,E126,E127,E501"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
