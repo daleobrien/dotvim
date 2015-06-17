@@ -54,8 +54,10 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
     perl -e 'system "mv ~/.vim ~/.vim_back_up" if glob "~/.vim"' && \
     git clone git://github.com/daleobrien/dotvim.git ~/.vim && \
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
+    rm -f ~/.vimrc && ln -s ~/.vim/vimrc_install ~/.vimrc && \
     vim +BundleInstall +qall! && \
     sudo yum -y install cmake && \
     cd ~/.vim/bundle/YouCompleteMe && \
-    ./install.sh
+    ./install.sh && \
+    rm -f ~/.vimrc && ln -s ~/.vim/vimrc ~/.vimrc
     ```

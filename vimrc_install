@@ -1,0 +1,21 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'scrooloose/syntastic.git'
+Bundle 'altercation/vim-colors-solarized'
+
+call vundle#end()
+
+" my local settings
+filetype plugin indent on
+set tabstop=4 shiftwidth=4 expandtab
+syntax on
