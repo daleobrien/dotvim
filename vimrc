@@ -30,7 +30,7 @@ Plugin 'scrooloose/nerdtree.git'
 " Note: pip install flake8
 " Note: pip install pylint
 Plugin 'scrooloose/syntastic.git'
-Plugin 'tell-k/vim-autopep8'
+" Plugin 'tell-k/vim-autopep8'
 
 " color
 Bundle 'altercation/vim-colors-solarized'
@@ -103,6 +103,10 @@ augroup checktime
         autocmd CursorMovedI    * silent! checktime
     endif
 augroup END
+
+autocmd FileType python setlocal ts=4 sw=4 sts=4 expandtab autoindent
+autocmd FileType javascript,jsx,html,css setlocal ts=2 sw=2 sts=2 expandtab autoindent
+autocmd FileType sql setlocal ts=2 sw=2 sts=2 expandtab autoindent
 
 " remove trailing whitespace
 autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
