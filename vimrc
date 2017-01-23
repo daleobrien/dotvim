@@ -3,6 +3,13 @@
 set nocompatible              " be iMproved, required
 filetype off
 
+
+if has("gui_running")
+  set macligatures
+  set guifont=Fira\ Code:h12
+endif
+ 
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -32,8 +39,19 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic.git'
 " Plugin 'tell-k/vim-autopep8'
 
+" Coffee
+Plugin 'kchmck/vim-coffee-script'
+
 " color
 Bundle 'altercation/vim-colors-solarized'
+
+" http://editorconfig.org , so we can use project editor settings universally
+Plugin 'editorconfig/editorconfig-vim'
+
+
+" JSX
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -58,8 +76,29 @@ let g:NERDTreeWinSize = 43
 let NERDTreeIgnore = ['\.pyc$']
 " also, press 'w' to auto resize
 
+" Nerd comment
+"
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
-" auto
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
 
 " Snippet support  & auto complate
 " YCM -> <c-n> & <c-p> to go through the list
@@ -113,7 +152,7 @@ autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//
 
 " show 80 column line
 if exists('+colorcolumn')
-    set colorcolumn=80
+    set colorcolumn=80,130
 else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
@@ -129,3 +168,13 @@ set background=dark
 let g:solarized_visibility="high"
 set listchars=tab:\ \
 syntax on
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
