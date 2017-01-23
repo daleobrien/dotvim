@@ -31,6 +31,11 @@ Plugin 'honza/vim-snippets'
 " File fuzz, L9 needed \f  to open some files ...
 "Plugin 'L9'
 "Plugin 'FuzzyFinder'
+
+" CNTL-P search
+Plugin 'kien/ctrlp.vim'
+
+" File tree
 Plugin 'scrooloose/nerdtree.git'
 
 " Looks for syntatic errors
@@ -48,7 +53,6 @@ Bundle 'altercation/vim-colors-solarized'
 " http://editorconfig.org , so we can use project editor settings universally
 Plugin 'editorconfig/editorconfig-vim'
 
-
 " JSX
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -57,6 +61,7 @@ call vundle#end()
 
 " my local settings
 filetype plugin indent on
+set clipboard=unnamed
 
 " Python sytle spaces
 set tabstop=4 shiftwidth=4 expandtab
