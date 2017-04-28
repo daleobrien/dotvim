@@ -8,6 +8,7 @@ These are settings for ```vim``` which I mainly use for editing python code in. 
 1. https://github.com/Valloric/YouCompleteMe, A code-completion engine for Vim
 1. SirVer/ultisnips & honza/vim-snippets, Code snippets that work with YouCompleteMe
 1. altercation/vim-colors-solarized, For some nice colours/colors
+1. https://github.com/digitaltoad/vim-pug, For Pug HTML templating
 
 ## Installation instructions (Step by step), see below for a oneliner
 

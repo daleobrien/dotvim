@@ -32,6 +32,12 @@ Plugin 'honza/vim-snippets'
 "Plugin 'L9'
 "Plugin 'FuzzyFinder'
 
+" For sorting Python imports
+Plugin 'fisadev/vim-isort'
+
+" HTML PUG template
+Plugin 'digitaltoad/vim-pug'
+
 " CNTL-P search
 Plugin 'kien/ctrlp.vim'
 
@@ -56,6 +62,12 @@ Plugin 'editorconfig/editorconfig-vim'
 " JSX
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+
+" Docker format
+Plugin 'ekalinin/Dockerfile.vim'
+
+" Highlight insecure SSL/TLS cipher 
+Plugin 'chr4/sslsecure.vim'
 
 call vundle#end()
 
