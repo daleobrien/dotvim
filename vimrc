@@ -185,8 +185,8 @@ autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//
 " Auto sort python import headers upon save
 autocmd FileType python autocmd BufWritePre <buffer> :Isort
 
-" Update the tags file, hardcoded for the main project I work on
-autocmd FileType python autocmd BufWritePre <buffer> :silent exec "!(cd /Users/dale/Documents/Programming/loop11 && ctags --languages='python' -R --exclude='.git' --exclude='node_modules' --exclude='www\.loop11\.com' . &) "
+" Update the tags file, will find the root folder
+autocmd FileType python autocmd BufWritePre <buffer> :silent exec "!(~/.vim/ctags-proj.sh &)"
 
 
 " Auto tabs -> spaces
@@ -206,10 +206,8 @@ endif
 " display line numbers
 set number
 
-" ctags
-:set tags=./tags;/Users/dale/Documents/Programming/loop11
-" Using https://github.com/ipod825/TagJump to and <C-]>
-" :nnoremap <silent><Leader><C-Enter]> <C-w><C-]><C-w>T
+" ctags, current folder, and up and up and so on
+set tags=./tags;,tags;  
 
 " colour settings
 syntax enable
