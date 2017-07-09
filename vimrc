@@ -50,6 +50,12 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic.git'
 " Plugin 'tell-k/vim-autopep8'
 
+" Ansible YAML 
+Plugin 'chase/vim-ansible-yaml'
+
+" Elm
+Plugin 'elmcast/elm-vim'
+
 " Coffee
 Plugin 'kchmck/vim-coffee-script'
 
@@ -68,6 +74,15 @@ Plugin 'ekalinin/Dockerfile.vim'
 
 " Highlight insecure SSL/TLS cipher 
 Plugin 'chr4/sslsecure.vim'
+
+" Nginx
+Plugin 'nginx.vim'
+
+"
+Plugin 'raimon49/requirements.txt.vim'
+
+" Ctag, jump to definition, CNTR-]
+Plugin 'ipod825/TagJump'
 
 call vundle#end()
 
@@ -167,6 +182,20 @@ autocmd FileType sql setlocal ts=2 sw=2 sts=2 expandtab autoindent
 " remove trailing whitespace
 autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" Auto sort python import headers upon save
+autocmd FileType python autocmd BufWritePre <buffer> :Isort
+
+" Update the tags file, hardcoded for the main project I work on
+autocmd FileType python autocmd BufWritePre <buffer> :silent exec "!(cd /Users/dale/Documents/Programming/loop11 && ctags --languages='python' -R --exclude='.git' --exclude='node_modules' --exclude='www\.loop11\.com' . &) "
+
+
+" Auto tabs -> spaces
+autocmd FileType python autocmd BufWritePre <buffer> :%s/\t/    /e
+
+" Auto sort requirements file
+autocmd BufRead,BufNewFile,BufWritePre requirements*.txt set filetype=requirements
+autocmd FileType requirements autocmd BufNewFile,BufRead,BufWritePre <buffer> :sort
+
 " show 80 column line
 if exists('+colorcolumn')
     set colorcolumn=80,130
@@ -176,6 +205,11 @@ endif
 
 " display line numbers
 set number
+
+" ctags
+:set tags=./tags;/Users/dale/Documents/Programming/loop11
+" Using https://github.com/ipod825/TagJump to and <C-]>
+" :nnoremap <silent><Leader><C-Enter]> <C-w><C-]><C-w>T
 
 " colour settings
 syntax enable
@@ -195,3 +229,13 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+" ELM - Syntastic support
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
+
+" ELM - You Complete me support
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
