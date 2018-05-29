@@ -8,7 +8,10 @@ if has("gui_running")
   set macligatures
   set guifont=Fira\ Code:h12
 endif
- 
+
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j
+endif
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -35,8 +38,7 @@ Plugin 'honza/vim-snippets'
 " For sorting Python imports
 Plugin 'fisadev/vim-isort'
 
-" HTML PUG template
-Plugin 'digitaltoad/vim-pug'
+" TODO:  https://github.com/sheerun/vim-polyglot   all languages
 
 " CNTL-P search
 Plugin 'kien/ctrlp.vim'
@@ -47,17 +49,22 @@ Plugin 'scrooloose/nerdtree.git'
 " Looks for syntatic errors
 " Note: pip install flake8
 " Note: pip install pylint
-Plugin 'scrooloose/syntastic.git'
-" Plugin 'tell-k/vim-autopep8'
+Plugin 'w0rp/ale'  " Better version of syntastic.git
 
-" Ansible YAML 
-Plugin 'chase/vim-ansible-yaml'
+" status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Elm
 Plugin 'elmcast/elm-vim'
 
+" Plugin 'auto-pairs'
+" Plugin 'LucHermitte/lh-vim-lib'
+" Plugin 'LucHermitte/lh-brackets'
+Plugin 'tpope/vim-surround'
+"
 " Coffee
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 
 " color
 Bundle 'altercation/vim-colors-solarized'
@@ -78,11 +85,25 @@ Plugin 'chr4/sslsecure.vim'
 " Nginx
 Plugin 'nginx.vim'
 
+" HTML match tag
+" Plugin 'valloric/MatchTagAlways'
+
 "
 Plugin 'raimon49/requirements.txt.vim'
 
 " Ctag, jump to definition, CNTR-]
 Plugin 'ipod825/TagJump'
+
+" JS Lint
+Plugin 'Shutnik/jshint2.vim'
+
+" Ansible YAML 
+" Plugin 'chase/vim-ansible-yaml'
+Plugin 'pearofducks/ansible-vim'
+
+" Easy motion https://github.com/easymotion/vim-easymotion
+" <leader>s
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 
@@ -142,21 +163,25 @@ let g:UltiSnipsExpandTrigger       = "<tab>"  "was <c-j>
 let g:UltiSnipsJumpForwardTrigger  = '<tab>'  "was <c-j>
 let g:UltiSnipsListSnippets        = '<c-l>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsSnippetDirectories  = [$HOME.'/.utlrasnips']
 
+" auto-pair
+" let g:AutoPairsShortcutFastWrap = '<leader-)>'
 
 "set paste  " Can't use this, stops Ultrasnips from working
 "
 "
-let g:syntastic_python_checkers = ['flake8']
-let g:flake8_ignore="E125,E126,E127,E501"
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" let g:syntastic_python_checkers = ['flake8']
+" let g:flake8_ignore="E125,E126,E127,E501"
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 "
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " auto reload file if it's changed somehow
 au FocusGained,BufEnter * :silent! !
@@ -175,19 +200,28 @@ augroup checktime
     endif
 augroup END
 
+au BufReadPost *.dtl set syntax=html
+
 autocmd FileType python setlocal ts=4 sw=4 sts=4 expandtab autoindent
-autocmd FileType javascript,jsx,html,css setlocal ts=2 sw=2 sts=2 expandtab autoindent
+autocmd FileType javascript,jsx,html,dtl,css setlocal ts=2 sw=2 sts=2 expandtab autoindent
 autocmd FileType sql setlocal ts=2 sw=2 sts=2 expandtab autoindent
 
 " remove trailing whitespace
 autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" JS lint
+let jshint2_confirm = 0  " Hide the prompt about non javascript file
+let jshint2_color = 1
+let jshint2_read = 1
+let jshint2_save = 1
+
+autocmd FileType js,javascript autocmd BufWritePre <buffer> :JSHint
 
 " Auto sort python import headers upon save
 autocmd FileType python autocmd BufWritePre <buffer> :Isort
 
 " Update the tags file, will find the root folder
 autocmd FileType python autocmd BufWritePre <buffer> :silent exec "!(~/.vim/ctags-proj.sh &)"
-
 
 " Auto tabs -> spaces
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\t/    /e
@@ -199,9 +233,13 @@ autocmd FileType requirements autocmd BufNewFile,BufRead,BufWritePre <buffer> :s
 " show 80 column line
 if exists('+colorcolumn')
     set colorcolumn=80,130
+    " set cursorcolumn " this is too slow, don't do it!
 else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
+
+
+" au BufRead,BufNewFile *.yml.j2 set filetype=ansible
 
 " display line numbers
 set number
@@ -212,11 +250,12 @@ set tags=./tags;,tags;
 " colour settings
 syntax enable
 colorscheme solarized
-"let g:solarized_termcolors=256
+" colorscheme blaquemagick
 set background=dark
 let g:solarized_visibility="high"
 set listchars=tab:\ \
 syntax on
+
 
 "python with virtualenv support
 py << EOF
@@ -229,11 +268,37 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 " ELM - Syntastic support
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:elm_syntastic_show_warnings = 1
 
 " ELM - You Complete me support
 let g:ycm_semantic_triggers = {
      \ 'elm' : ['.'],
      \}
+
+" ALE, linter
+let g:ale_lint_delay = 3000  " default is 200ms
+let g:ale_lint_on_text_changed = 'normal'
+
+" Airline
+let g:airline#extensions#ale#enabled = 1
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
+" vim-easymotion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
